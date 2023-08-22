@@ -1,8 +1,19 @@
+/* eslint-disable no-template-curly-in-string */
 import { contextBridge, ipcRenderer } from 'electron'
+import { flatten } from 'lodash'
 
 // Whitelist of valid channels used for IPC communication (Send message from Renderer to Main)
-const mainAvailChannels: string[] = ['msgRequestGetVersion', 'msgOpenExternalLink']
-const rendererAvailChannels: string[] = ['msgReceivedVersion']
+const mainAvailChannels: string[] = flatten(
+  ['Create', 'Update', 'Get', 'Delete', 'List'].map((action) =>
+    ['msgRequest_Diary'].map((event) => `${event.replace('_', action)}`)
+  )
+)
+// console.log(mainAvailChannels)
+const rendererAvailChannels: string[] = flatten(
+  ['Create', 'Update', 'Get', 'Delete', 'List'].map((action) =>
+    ['msgReceived_Diary'].map((event) => `${event.replace('_', action)}`)
+  )
+)
 
 contextBridge.exposeInMainWorld('mainApi', {
   send: (channel: string, ...data: any[]): void => {

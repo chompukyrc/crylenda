@@ -34,10 +34,11 @@ export const createMainWindow = async (mainWindow: BrowserWindow): Promise<Brows
   })
 
   mainWindow.once('ready-to-show', (): void => {
-    mainWindow.setAlwaysOnTop(true)
-    mainWindow.show()
-    mainWindow.focus()
-    mainWindow.setAlwaysOnTop(false)
+    // mainWindow.setAlwaysOnTop(true)
+    // mainWindow.show()
+    // mainWindow.focus()
+    mainWindow.showInactive()
+    // mainWindow.setAlwaysOnTop(false)
   })
 
   if (Constants.IS_DEV_ENV) {
