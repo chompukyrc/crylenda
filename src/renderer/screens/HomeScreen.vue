@@ -15,7 +15,7 @@ const attrs = ref<{ key: string; highlight: string; dates: Date }[]>([
   }
 ])
 
-function onclick(event) {
+async function onclick(event) {
   console.log('click', event)
 }
 

@@ -29,7 +29,7 @@ export const createMainWindow = async (mainWindow: BrowserWindow): Promise<Brows
 
   mainWindow.webContents.on('did-frame-finish-load', (): void => {
     if (Constants.IS_DEV_ENV) {
-      // mainWindow.webContents.openDevTools()
+      mainWindow.webContents.openDevTools()
     }
   })
 
