@@ -1,6 +1,6 @@
 # .gitignore for NodeJS Projects
 # ---------- Start of common ignore files
-
+data
 # Node artifact files
 node_modules/
 

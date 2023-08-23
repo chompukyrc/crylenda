@@ -1,20 +1,27 @@
-import { BrowserWindow, ipcMain, shell } from 'electron'
-import Constants from './utils/Constants'
+import { BrowserWindow, ipcMain } from 'electron'
+// import Constants from './utils/Constants'
+// import db from './utils/db'
+import { ICreateDiary } from './interfaces/diary'
+import diaryController from './controllers/diary.controller'
 
 /*
  * IPC Communications
  * */
 export default class IPCs {
   static initialize(window: BrowserWindow): void {
-    // Get application version
-    ipcMain.on('msgRequestGetVersion', (event, props: { test: string }) => {
-      console.log(props.test)
-      window.webContents.send('msgReceivedVersion', Constants.APP_VERSION)
+    ipcMain.on('msgRequestCreateDiary', async (event, diary: ICreateDiary) => {
+      const CreateDiary = await diaryController.create(diary)
+      window.webContents.send('msgReceivedCreateDiary', CreateDiary)
     })
 
-    // Open url via web browser
-    ipcMain.on('msgOpenExternalLink', async (event, url: string) => {
-      await shell.openExternal(url)
+    ipcMain.on('msgRequestListDiary', async (event) => {
+      const diaries = await diaryController.list()
+      window.webContents.send('msgReceivedListDiary', diaries)
+    })
+
+    ipcMain.on('msgRequestGetDiary', async (event, date: Date) => {
+      const diaries = await diaryController.get(date)
+      window.webContents.send('msgReceivedGetDiary', diaries)
     })
   }
 }

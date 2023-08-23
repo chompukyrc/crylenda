@@ -29,15 +29,16 @@ export const createMainWindow = async (mainWindow: BrowserWindow): Promise<Brows
 
   mainWindow.webContents.on('did-frame-finish-load', (): void => {
     if (Constants.IS_DEV_ENV) {
-      // mainWindow.webContents.openDevTools()
+      mainWindow.webContents.openDevTools()
     }
   })
 
   mainWindow.once('ready-to-show', (): void => {
-    mainWindow.setAlwaysOnTop(true)
-    mainWindow.show()
-    mainWindow.focus()
-    mainWindow.setAlwaysOnTop(false)
+    // mainWindow.setAlwaysOnTop(true)
+    // mainWindow.show()
+    // mainWindow.focus()
+    mainWindow.showInactive()
+    // mainWindow.setAlwaysOnTop(false)
   })
 
   if (Constants.IS_DEV_ENV) {
