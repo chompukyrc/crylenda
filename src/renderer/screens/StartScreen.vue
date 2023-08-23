@@ -2,7 +2,7 @@
   <v-container>
     <v-row no-gutters align="center" class="text-center">
       <v-col cols="12">
-        <v-icon icon="mdi-emoticon-cool-outline" size="250" color="#009f57" />
+        <div>start screen</div>
       </v-col>
       <v-col cols="12" class="my-4">{{ 'Hello world' }}</v-col>
     </v-row>
