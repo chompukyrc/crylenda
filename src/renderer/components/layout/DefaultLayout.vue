@@ -5,7 +5,7 @@ import HeaderLayout from "@/renderer/components/layout/HeaderLayout.vue"
 <template>
     <v-app>
         <v-layout>
-            <HeaderLayout />
+            <!-- <HeaderLayout /> -->
             <v-main>
                 <slot />
             </v-main>
