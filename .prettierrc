@@ -2,7 +2,7 @@
   "useTabs": false,
   "semi": false,
   "vueIndentScriptAndStyle": false,
-  "singleQuote": true,
+  "singleQuote": false,
   "quoteProps": "as-needed",
   "trailingComma": "none",
   "bracketSpacing": true,
@@ -14,5 +14,6 @@
   "requirePragma": false,
   "proseWrap": "never",
   "htmlWhitespaceSensitivity": "strict",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "tabWidth": 4
 }
