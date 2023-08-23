@@ -32,7 +32,7 @@ onMounted((): void => {
 
 <template>
   <v-container>
-    <div>Hello worlddddddd</div>
+    <div>Hello world</div>
     <div style="background-color: brown; height: 400px">
       <v-calendar expanded style="height: max-content" :attributes="attrs" @dayclick="onclick" />
     </div>
