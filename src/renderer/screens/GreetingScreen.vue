@@ -1,5 +1,15 @@
-<template>
-    <v-container class="flex justify-center items-center h-screen text-white text-3xl">Hihihihi</v-container>
-</template>
+<script lang="ts">
+import { useRoute, useRouter } from "vue-router"
+const router = useRouter()
+</script>
 
-<script lang="ts"></script>
+<template>
+    <router-link to="/lock">
+        <v-container
+            class="flex justify-center items-center h-screen text-white text-3xl"
+            onclick=""
+        >
+            - How does your heart feel today? -
+        </v-container>
+    </router-link>
+</template>
