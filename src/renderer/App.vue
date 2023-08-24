@@ -3,7 +3,7 @@ import { DefaultLayout } from "@/renderer/components/layout"
 </script>
 
 <template>
-    <DefaultLayout class="bg-gradient-to-r from-[#adb3ff] to-[#8385ff]">
+    <DefaultLayout class="bg-gradient-to-t from-[#5032c2] to-[#c9a0dc]">
         <router-view />
     </DefaultLayout>
 </template>
