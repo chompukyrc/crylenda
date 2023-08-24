@@ -5,12 +5,12 @@
             <v-row justify="center">
                 <v-col cols="auto">
                     <router-link to="/question2"
-                        ><v-btn height="120" min-width="200" color="white"> Cry </v-btn></router-link
+                        ><v-btn elevation="8" height="120" min-width="200" color="white"> Cry </v-btn></router-link
                     >
                 </v-col>
                 <v-col cols="auto">
                     <router-link to="/diary"
-                        ><v-btn height="120" min-width="200" color="white"> not cry </v-btn></router-link
+                        ><v-btn elevation="8" height="120" min-width="200" color="white"> not cry </v-btn></router-link
                     >
                 </v-col>
             </v-row>
