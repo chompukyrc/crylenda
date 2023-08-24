@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts">
-import router from "../router"
 
 export default {
     data: () => ({
@@ -39,7 +38,7 @@ export default {
                 this.loading = false
                 this.snackbarColor = rsp === this.expectedOtp ? "success" : "warning"
                 if (rsp === this.expectedOtp) {
-                    this.$router.push("/")
+                    this.$router.push("/question")
                 } else {
                     this.$router.push("/lock")
                 }
