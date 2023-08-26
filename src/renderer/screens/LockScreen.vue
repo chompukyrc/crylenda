@@ -1,6 +1,6 @@
 <template>
     <v-container
-        class="flex justify-center items-center h-screen flex-col animate-in slide-in-from-right duration-1000"
+        class="flex justify-center items-center h-screen flex-col animate-in zoom-in duration-1000"
     >
         <div class="text-white text-2xl mb-8">Enter Password</div>
         <v-otp-input

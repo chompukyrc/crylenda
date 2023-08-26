@@ -52,7 +52,7 @@ onMounted((): void => {
 </script>
 
 <template>
-    <v-container>
+    <v-container class="animate-in zoom-in duration-1000">
         <div>Hello world</div>
         <div style="background-color: brown; height: 400px">
             <v-calendar

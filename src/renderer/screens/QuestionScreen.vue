@@ -1,5 +1,5 @@
 <template>
-    <v-container class="flex justify-center items-center h-screen text-white text-2xl flex-col">
+    <v-container class="flex justify-center items-center h-screen text-white text-2xl flex-col animate-in zoom-in duration-1000">
         <div>Have you cried today?</div>
         <v-container>
             <v-row justify="center">
