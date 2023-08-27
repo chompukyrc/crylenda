@@ -20,12 +20,21 @@
                     <v-icon :icon="season(modelValue)"></v-icon>
                 </template> </v-slider
         ></div>
+        <v-btn
+            icon="mdi-send"
+            color="white"
+            size="large"
+            class="mt-12"
+            @click="sendHandler()"
+            :loading="loading"
+        ></v-btn>
     </v-container>
 </template>
 
 <script>
 export default {
     data: () => ({
+        loading: false,
         emotion: {
             1: "cry",
             2: "sad",
@@ -38,6 +47,14 @@ export default {
     methods: {
         season(val) {
             return this.icons[val]
+        },
+        sendHandler() {
+            this.loading = true
+
+            setTimeout(() => {
+                this.loading = false
+                this.$router.push("/home")
+            }, 1500)
         }
     }
 }
