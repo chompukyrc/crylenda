@@ -29,7 +29,7 @@
             color="white"
             variant="tonal"
             @click="backHandler()"
-            :disabled="select.length === 0" 
+            :disabled="select.length === 0"
         ></v-btn
     ></div>
 </template>
