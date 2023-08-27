@@ -2,7 +2,9 @@
     <v-container
         class="flex flex-col justify-center items-center h-screen animate-in zoom-in duration-1000"
     >
-        <div class="text-xl text-white mb-12">Rate how you feel today</div>
+        <div class="text-xl text-white mb-12"
+            >Rate how you feel today <v-icon icon="mdi-white-balance-sunny"></v-icon>
+        </div>
         <div class="w-5/6"
             ><v-slider
                 class="text-md text-white mx-12"
@@ -14,12 +16,14 @@
                 show-ticks="always"
                 thumb-label="always"
             >
-            </v-slider
+                <template v-slot:thumb-label="{ modelValue }">
+                    <v-icon :icon="season(modelValue)"></v-icon>
+                </template> </v-slider
         ></div>
     </v-container>
 </template>
 
-<script lang="ts">
+<script>
 export default {
     data: () => ({
         emotion: {
@@ -30,6 +34,11 @@ export default {
             5: "happy"
         },
         icons: ["mdi-snowflake", "mdi-leaf", "mdi-fire", "mdi-water", "mdi-water", "mdi-water"]
-    })
+    }),
+    methods: {
+        season(val) {
+            return this.icons[val]
+        }
+    }
 }
 </script>

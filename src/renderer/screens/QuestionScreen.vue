@@ -1,9 +1,10 @@
 <template>
     <v-container
-        class="flex justify-center items-center h-5/6 text-white text-2xl flex-col animate-in zoom-in duration-1000"
+        fluid
+        class="flex justify-center items-center h-screen text-white text-2xl flex-col animate-in fade-in duration-1000"
     >
-        <div class="mb-8">Have you cried today?</div>
-        <v-container>
+        <div>
+            <div class="mb-8 text-center">Have you cried today?</div>
             <v-row justify="center">
                 <v-col cols="auto">
                     <v-btn
@@ -28,18 +29,18 @@
                     </v-btn>
                 </v-col>
             </v-row>
-        </v-container>
+        </div>
+        <div class="absolute bottom-0 right-0 flex justify-end p-8">
+            <v-btn
+                icon="mdi-arrow-right"
+                size="large"
+                color="white"
+                variant="tonal"
+                :disabled="selected === -1"
+                @click="nextHandler()"
+            ></v-btn
+        ></div>
     </v-container>
-    <div class="flex justify-end items-center mx-20 h-1/6">
-        <v-btn
-            icon="mdi-arrow-right"
-            size="large"
-            color="white"
-            variant="tonal"
-            :disabled="selected === -1"
-            @click="nextHandler()"
-        ></v-btn
-    ></div>
 </template>
 
 <script lang="ts">

@@ -1,10 +1,10 @@
 <template>
     <v-container
-        class="flex flex-col justify-center items-center h-5/6 animate-in zoom-in duration-1000"
-    >
-        <div class="mb-8 text-xl text-white">Why did you cry ;-;</div>
-        <div class="w-1/2"
-            ><v-combobox
+        fluid
+        class="flex flex-col h-screen justify-center items-center animate-in fade-in duration-1000"
+        ><div class="w-1/2"
+            ><div class="text-center mb-8 text-xl text-white">Why did you cry ;-;</div>
+            <v-combobox
                 class="h-24"
                 v-model="select"
                 :items="items"
@@ -14,24 +14,24 @@
                 chips
             ></v-combobox
         ></div>
+        <div class="absolute bottom-0 flex justify-between p-8 w-screen">
+            <v-btn
+                icon="mdi-arrow-left"
+                size="large"
+                color="white"
+                variant="tonal"
+                @click="nextHandler()"
+            ></v-btn>
+            <v-btn
+                icon="mdi-arrow-right"
+                size="large"
+                color="white"
+                variant="tonal"
+                @click="backHandler()"
+                :disabled="select.length === 0"
+            ></v-btn
+        ></div>
     </v-container>
-    <div class="flex justify-between items-center mx-20 h-1/6">
-        <v-btn
-            icon="mdi-arrow-left"
-            size="large"
-            color="white"
-            variant="tonal"
-            @click="nextHandler()"
-        ></v-btn>
-        <v-btn
-            icon="mdi-arrow-right"
-            size="large"
-            color="white"
-            variant="tonal"
-            @click="backHandler()"
-            :disabled="select.length === 0"
-        ></v-btn
-    ></div>
 </template>
 
 <script lang="ts">
