@@ -17,9 +17,10 @@
                 thumb-label="always"
             >
                 <template v-slot:thumb-label="{ modelValue }">
-                    <v-icon :icon="season(modelValue)"></v-icon>
-                </template> </v-slider
-        ></div>
+                    <p class="text-xl">{{ season(modelValue) }}</p>
+                </template>
+            </v-slider></div
+        >
         <v-btn
             icon="mdi-send"
             color="white"
@@ -42,7 +43,7 @@ export default {
             4: "well",
             5: "happy"
         },
-        icons: ["mdi-snowflake", "mdi-leaf", "mdi-fire", "mdi-water", "mdi-water", "mdi-water"]
+        icons: ["", "😢", "😞", "😐", "😙", "😁"]
     }),
     methods: {
         season(val) {
