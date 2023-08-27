@@ -6,7 +6,13 @@
         <div class="flex justify-center w-1/3"
             ><v-textarea auto-grow variant="solo" v-model="message"> </v-textarea
         ></div>
-        <v-btn variant="tonal" @click="saveHandler()" :disabled="message.length === 0">save</v-btn>
+        <v-btn
+            variant="tonal"
+            @click="saveHandler()"
+            :loading="loading"
+            :disabled="message.length === 0"
+            >save</v-btn
+        >
     </v-container>
 </template>
 
@@ -14,12 +20,16 @@
 export default {
     data() {
         return {
+            loading: false,
             message: ""
         }
     },
     methods: {
         saveHandler() {
+            this.loading = true
+
             setTimeout(() => {
+                this.loading = false
                 console.log(this.message)
                 this.$router.push("/today")
             }, 1500)
