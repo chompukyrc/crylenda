@@ -2,12 +2,12 @@
     <v-container
         class="flex justify-center items-center h-5/6 text-white text-2xl flex-col animate-in zoom-in duration-1000"
     >
-        <div>Have you cried today? {{ selected }}</div>
+        <div class="mb-8">Have you cried today?</div>
         <v-container>
             <v-row justify="center">
                 <v-col cols="auto">
                     <v-btn
-                        :class="`${selected === 0 ? ' bg-red-300  ' : '  bg-white '}`"
+                        :class="`${selected === 0 ? ' bg-white  ' : ' bg-gray-300 bg-opacity-40'}`"
                         elevation="8"
                         height="120"
                         min-width="200"
@@ -18,7 +18,7 @@
                 </v-col>
                 <v-col cols="auto">
                     <v-btn
-                        :class="`${selected === 1 ? ' bg-red-300  ' : '  bg-white '}`"
+                        :class="`${selected === 1 ? ' bg-white  ' : '  bg-gray-300 bg-opacity-40'}`"
                         elevation="8"
                         height="120"
                         min-width="200"
@@ -49,16 +49,8 @@ export default {
         options: ["Cry", "Not Cry"]
     }),
     methods: {
-        // cryHandler(message: string) {
-        //     this.selected = message
-        //     console.log(message)
-        // },
-        // noCryHandler(message: string) {
-        //     this.selected = message
-        //     console.log(message)
-        // },
         nextHandler() {
-            if (this.selected === "cry") {
+            if (this.selected === 0) {
                 this.$router.push("/question2")
             } else {
                 this.$router.push("/diary")

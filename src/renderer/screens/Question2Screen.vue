@@ -15,9 +15,22 @@
             ></v-combobox
         ></div>
     </v-container>
-    <div class="flex justify-between items-center mx-20 h-1/6"
-        ><v-btn icon="mdi-arrow-left" size="large" color="white" variant="tonal"></v-btn>
-        <v-btn icon="mdi-arrow-right" size="large" color="white" variant="tonal"></v-btn
+    <div class="flex justify-between items-center mx-20 h-1/6">
+        <v-btn
+            icon="mdi-arrow-left"
+            size="large"
+            color="white"
+            variant="tonal"
+            @click="nextHandler()"
+        ></v-btn>
+        <v-btn
+            icon="mdi-arrow-right"
+            size="large"
+            color="white"
+            variant="tonal"
+            @click="backHandler()"
+            :disabled="select.length === 0" 
+        ></v-btn
     ></div>
 </template>
 
@@ -27,6 +40,14 @@ export default {
         return {
             select: [],
             items: ["พี่กุ๊กดุ", "น้อยใจ", "เครียดงาน", "ไม่เก่งพอ"]
+        }
+    },
+    methods: {
+        nextHandler() {
+            this.$router.push("/question")
+        },
+        backHandler() {
+            this.$router.push("/diary")
         }
     }
 }
