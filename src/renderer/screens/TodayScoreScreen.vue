@@ -2,10 +2,10 @@
     <v-container
         class="flex flex-col justify-center items-center h-screen animate-in zoom-in duration-1000"
     >
-        <div class="text-xl text-white mb-12"
+        <v-container class="text-xl text-white mb-12 text-center"
             >Rate how you feel today <v-icon icon="mdi-white-balance-sunny"></v-icon>
-        </div>
-        <div class="w-5/6"
+        </v-container>
+        <v-container class="w-5/6"
             ><v-slider
                 class="text-md text-white mx-12"
                 color="white"
@@ -19,7 +19,7 @@
                 <template v-slot:thumb-label="{ modelValue }">
                     <p class="text-xl">{{ season(modelValue) }}</p>
                 </template>
-            </v-slider></div
+            </v-slider></v-container
         >
         <v-btn
             icon="mdi-send"

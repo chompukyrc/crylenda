@@ -3,8 +3,8 @@
         fluid
         class="flex justify-center items-center h-screen text-white text-2xl flex-col animate-in zoom-in duration-1000"
     >
-        <div>
-            <div class="mb-8 text-center">Have you cried today?</div>
+        <v-container>
+            <v-container class="mb-8 text-center">Have you cried today?</v-container>
             <v-row justify="center">
                 <v-col cols="auto">
                     <v-btn
@@ -29,8 +29,8 @@
                     </v-btn>
                 </v-col>
             </v-row>
-        </div>
-        <div class="absolute bottom-0 right-0 flex justify-end p-8">
+        </v-container>
+        <v-container class="absolute bottom-0 right-0 flex justify-end p-8">
             <v-btn
                 icon="mdi-arrow-right"
                 size="large"
@@ -39,7 +39,7 @@
                 :disabled="selected === -1"
                 @click="nextHandler()"
             ></v-btn
-        ></div>
+        ></v-container>
     </v-container>
 </template>
 

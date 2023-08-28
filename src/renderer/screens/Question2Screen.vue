@@ -2,8 +2,8 @@
     <v-container
         fluid
         class="flex flex-col h-screen justify-center items-center animate-in slide-in-from-right duration-1000"
-        ><div class="w-1/2"
-            ><div class="text-center mb-8 text-xl text-white">Why did you cry ;-;</div>
+        ><v-container class="w-1/2"
+            ><v-container class="text-center mb-8 text-xl text-white">Why did you cry ;-;</v-container>
             <v-combobox
                 class="h-24"
                 v-model="select"
@@ -13,7 +13,7 @@
                 multiple
                 chips
             ></v-combobox
-        ></div>
+        ></v-container>
         <div class="absolute bottom-0 flex justify-between p-8 w-screen">
             <v-btn
                 icon="mdi-arrow-left"

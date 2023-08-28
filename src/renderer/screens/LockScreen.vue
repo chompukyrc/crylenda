@@ -2,7 +2,7 @@
     <v-container
         class="flex justify-center items-center h-screen flex-col animate-in slide-in-from-top duration-1000"
     >
-        <div class="text-white text-2xl mb-8">Enter Password</div>
+        <v-container class="text-white text-2xl mb-8 text-center">Enter Password</v-container>
         <v-otp-input
             ref="otpInput"
             v-model="otp"

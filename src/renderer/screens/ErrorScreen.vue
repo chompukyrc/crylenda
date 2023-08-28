@@ -1,3 +1,3 @@
 <template>
-  <div>Unknown error occurred</div>
+    <v-container>Error</v-container>
 </template>
