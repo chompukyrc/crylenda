@@ -20,7 +20,25 @@
 </template>
 
 <script lang="ts">
+import { IDiary } from "@/main/interfaces"
+import { useRouter } from "vue-router"
+
 export default {
+    setup() {
+        const navigation = useRouter()
+
+        window.mainApi.receive("msgReceivedGetDiary", (event: Event, dirary: IDiary) => {
+            // เชคว่าวันนี้มีไดอารี่ยัง
+            console.log(dirary)
+            if (dirary) {
+                // มีแล้ว
+                navigation.push("/home")
+                // alert("มีแล้วจ้า")
+            } else {
+                navigation.push("/question")
+            }
+        })
+    },
     data: () => ({
         loading: false,
         snackbar: false,
@@ -37,7 +55,7 @@ export default {
             setTimeout(() => {
                 this.loading = false
                 if (rsp === this.expectedOtp) {
-                    this.$router.push("/question")
+                    window.mainApi.send("msgRequestGetDiary", new Date())
                 } else {
                     this.text = `Invalid password`
                     this.snackbarColor = "warning"

@@ -40,7 +40,6 @@ import { mapGetters } from "vuex"
 import stores from "../stores"
 
 export default {
-
     data: () => ({
         loading: false,
         emotion: {
@@ -75,11 +74,26 @@ export default {
         sendHandler() {
             this.loading = true
 
-            setTimeout(() => {
-                this.loading = false
-                this.$router.push("/home")
-            }, 1500)
+            try {
+                window.mainApi.send(
+                    "msgRequestCreateDiary",
+                    JSON.stringify({
+                        isCry: this.diary.isCry,
+                        reason: this.diary.reason,
+                        diary: this.diary.diary,
+                        happyScore: this.diary.happyScore
+                    })
+                )
+
+                setTimeout(() => {
+                    this.loading = false
+                    this.$router.push("/home")
+                }, 1500)
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }
+    },
+    mounted() {}
 }
 </script>

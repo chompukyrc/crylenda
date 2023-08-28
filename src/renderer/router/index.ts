@@ -48,7 +48,7 @@ export default createRouter({
             meta: {}
         },
         {
-            path: "/",
+            path: "/home",
             component: HomeScreen,
             meta: {}
         },
@@ -57,6 +57,7 @@ export default createRouter({
             component: ErrorScreen,
             meta: {}
         },
+        { path: "/", redirect: "/greeting" },
         {
             path: "/:pathMatch(.*)*",
             redirect: "/"

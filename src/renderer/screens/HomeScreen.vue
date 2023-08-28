@@ -23,31 +23,26 @@ async function onclick(event) {
 
 async function createCreateDiary() {
     const toDay = new Date() // , 'MM-dd-yyyy'
-    window.mainApi.send("msgRequestCreateDiary", {
-        isCry: false,
-        reason: "ไม่รู้",
-        diary: "สวัสดีค้าบ",
-        date: toDay,
-        happyScore: 10
-    } as ICreateDiary)
+    // window.mainApi.send("msgRequestCreateDiary", {
+    //     isCry: false,
+    //     reason: "ไม่รู้",
+    //     diary: "สวัสดีค้าบ",
+    //     date: toDay,
+    //     happyScore: 10
+    // } as ICreateDiary)
 }
 
 onMounted((): void => {
-    window.mainApi.receive("msgReceivedCreateDiary", (event: Event, diary: IDiary) => {
-        console.log(diary)
-    })
+    // window.mainApi.receive("msgReceivedCreateDiary", (event: Event, diary: IDiary) => {
+    //     console.log(diary)
+    // })
 
     window.mainApi.receive("msgReceivedListDiary", (event: Event, diaries: IDiary[]) => {
         console.log(diaries)
     })
 
-    window.mainApi.receive("msgReceivedGetDiary", (event: Event, dirary: IDiary) => {
-        console.log(dirary)
-    })
-
     // call
     window.mainApi.send("msgRequestListDiary")
-    window.mainApi.send("msgRequestGetDiary", new Date())
 })
 </script>
 

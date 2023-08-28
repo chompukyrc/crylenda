@@ -10,12 +10,16 @@
                 v-model="select"
                 class="h-24"
                 :items="items"
+                item-title="name"
+                item-value="_id"
+                :return-object="false"
                 label="Why did you cry ;-;"
                 variant="solo"
                 multiple
                 chips
-            ></v-combobox
-        ></v-container>
+            >
+            </v-combobox>
+        </v-container>
         <div class="absolute bottom-0 flex justify-between p-8 w-screen">
             <v-btn
                 icon="mdi-arrow-left"
@@ -39,13 +43,14 @@
 
 <script lang="ts">
 import { mapGetters } from "vuex"
+import { IReason } from "@/main/interfaces"
 import stores from "../stores"
 
 export default {
     data() {
         return {
             // select: [],
-            items: ["พี่กุ๊กดุ", "น้อยใจ", "เครียดงาน", "ไม่เก่งพอ"]
+            items: [] as IReason[] // "พี่กุ๊กดุ", "น้อยใจ", "เครียดงาน", "ไม่เก่งพอ"
         }
     },
     computed: {
@@ -71,6 +76,16 @@ export default {
         backHandler() {
             this.$router.push("/diary")
         }
+    },
+    mounted() {
+        window.mainApi.receive("msgReceivedListReason", (event: Event, data: IReason) => {
+            console.log(data)
+            // @ts-ignore
+            this.items = data
+        })
+
+        // window.mainApi.send("msgRequestCreateReason", "test ja")
+        window.mainApi.send("msgRequestListReason")
     }
 }
 </script>

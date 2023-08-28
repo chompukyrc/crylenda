@@ -10,7 +10,7 @@ export default {
             })
 
             if (!_diary) {
-                const diary = await db.diary.insertAsync(CreateDiary)
+                const diary = await db.diary.insertAsync({ ...CreateDiary, date: new Date() })
                 return diary as IDiary
             }
         } catch (error) {
@@ -21,14 +21,14 @@ export default {
     },
     update: async () => {
         try {
-            console.log("create")
+            console.log("update")
         } catch (error) {
             console.log(error)
         }
     },
     delete: async () => {
         try {
-            console.log("create")
+            console.log("delete")
         } catch (error) {
             console.log(error)
         }
