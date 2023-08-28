@@ -1,7 +1,7 @@
 <template>
     <v-container
         fluid
-        class="flex justify-center items-center h-screen text-white text-2xl flex-col animate-in fade-in duration-1000"
+        class="flex justify-center items-center h-screen text-white text-2xl flex-col animate-in zoom-in duration-1000"
     >
         <div>
             <div class="mb-8 text-center">Have you cried today?</div>

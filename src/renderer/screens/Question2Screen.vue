@@ -1,7 +1,7 @@
 <template>
     <v-container
         fluid
-        class="flex flex-col h-screen justify-center items-center animate-in fade-in duration-1000"
+        class="flex flex-col h-screen justify-center items-center animate-in slide-in-from-right duration-1000"
         ><div class="w-1/2"
             ><div class="text-center mb-8 text-xl text-white">Why did you cry ;-;</div>
             <v-combobox

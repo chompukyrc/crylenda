@@ -1,7 +1,7 @@
 <template>
     <v-container
         fluid
-        class="flex flex-col h-screen justify-center items-center animate-in fade-in duration-1000"
+        class="flex flex-col h-screen justify-center items-center animate-in slide-in-from-right duration-1000"
     >
         <div class="w-full flex flex-col items-center"
             ><div class="mb-8 text-white text-xl">Tell something about today</div>
@@ -48,7 +48,7 @@ export default {
             }, 1500)
         },
         backHandler() {
-            this.$router.push("/question2")
+            this.$router.push("/question")
         }
     }
 }
