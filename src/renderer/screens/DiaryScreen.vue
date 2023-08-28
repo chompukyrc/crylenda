@@ -3,8 +3,10 @@
         fluid
         class="flex flex-col h-screen justify-center items-center animate-in slide-in-from-right duration-1000"
     >
-        <v-container class="w-full flex flex-col items-center "
-            ><v-container class="mb-8 text-white text-xl text-center">Tell something about today</v-container>
+        <v-container class="w-full flex flex-col items-center"
+            ><v-container class="mb-8 text-white text-xl text-center"
+                >Tell something about today</v-container
+            >
             <v-container class="flex justify-center w-1/3"
                 ><v-textarea auto-grow variant="solo" v-model="message"> </v-textarea
             ></v-container>
@@ -15,8 +17,9 @@
                 :disabled="message.length === 0"
                 size="large"
                 >save</v-btn
-            ></v-container
-        >
+            >
+            <div>{{ diary }}</div>
+        </v-container>
     </v-container>
     <v-container class="absolute bottom-0 flex justify-start p-8">
         <v-btn
@@ -30,11 +33,30 @@
 </template>
 
 <script lang="ts">
+import { mapGetters } from "vuex"
+import stores from "../stores"
+
 export default {
     data() {
         return {
-            loading: false,
-            message: ""
+            loading: false
+            // message: ""
+        }
+    },
+    computed: {
+        ...mapGetters({
+            diary: "getDiary"
+        }),
+        message: {
+            set(data: string) {
+                stores.commit("setDiary", {
+                    ...this.diary,
+                    diary: data
+                })
+            },
+            get() {
+                return this.diary.diary
+            }
         }
     },
     methods: {

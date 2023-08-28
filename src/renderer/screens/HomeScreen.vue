@@ -52,16 +52,17 @@ onMounted((): void => {
 </script>
 
 <template>
-    <v-container class="animate-in zoom-in duration-1000">
-        <div>Hello world</div>
-        <div style="background-color: brown; height: 400px">
+    <v-container
+        class="h-screen flex flex-col items-center justify-center animate-in zoom-in duration-1000"
+    >
+        <v-container>
             <v-calendar
                 expanded
                 style="height: max-content"
                 :attributes="attrs"
                 @dayclick="onclick"
             />
-        </div>
+        </v-container>
         <v-btn @click="createCreateDiary">New Diary</v-btn>
     </v-container>
 </template>

@@ -8,22 +8,24 @@
             <v-row justify="center">
                 <v-col cols="auto">
                     <v-btn
-                        :class="`${selected === 0 ? ' bg-white  ' : ' bg-gray-300 bg-opacity-40'}`"
+                        :class="`${isCry === true ? ' bg-white  ' : ' bg-gray-300 bg-opacity-40'}`"
                         elevation="8"
                         height="120"
                         min-width="200"
-                        @click="selected = 0"
+                        @click="isCry = true"
                     >
                         {{ options[0] }}
                     </v-btn>
                 </v-col>
                 <v-col cols="auto">
                     <v-btn
-                        :class="`${selected === 1 ? ' bg-white  ' : '  bg-gray-300 bg-opacity-40'}`"
+                        :class="`${
+                            isCry === false ? ' bg-white  ' : '  bg-gray-300 bg-opacity-40'
+                        }`"
                         elevation="8"
                         height="120"
                         min-width="200"
-                        @click="selected = 1"
+                        @click="isCry = false"
                     >
                         {{ options[1] }}
                     </v-btn>
@@ -36,22 +38,42 @@
                 size="large"
                 color="white"
                 variant="tonal"
-                :disabled="selected === -1"
+                :disabled="isCry === null"
                 @click="nextHandler()"
-            ></v-btn
-        ></v-container>
+            ></v-btn>
+        </v-container>
+        {{ diary }}
     </v-container>
 </template>
 
 <script lang="ts">
+import { mapGetters } from "vuex"
+import stores from "../stores"
 export default {
     data: () => ({
-        selected: -1,
+        // selected: -1,
         options: ["Cry", "Not Cry"]
     }),
+    computed: {
+        ...mapGetters({
+            diary: "getDiary"
+        }),
+        isCry: {
+            set(data: boolean) {
+                stores.commit("setDiary", {
+                    ...this.diary,
+                    isCry: data
+                })
+            },
+            get() {
+                return this.diary.isCry
+            }
+        }
+    },
+
     methods: {
         nextHandler() {
-            if (this.selected === 0) {
+            if (this.isCry) {
                 this.$router.push("/question2")
             } else {
                 this.$router.push("/diary")

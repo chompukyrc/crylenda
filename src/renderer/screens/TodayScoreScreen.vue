@@ -10,14 +10,16 @@
                 class="text-md text-white mx-12"
                 color="white"
                 :ticks="emotion"
-                min="1"
-                max="5"
+                min="0"
+                max="4"
+                v-model="score"
                 :step="1"
                 show-ticks="always"
                 thumb-label="always"
             >
                 <template v-slot:thumb-label="{ modelValue }">
                     <p class="text-xl">{{ season(modelValue) }}</p>
+                    <!-- <p>{{ modelValue + 1 }}</p> -->
                 </template>
             </v-slider></v-container
         >
@@ -29,22 +31,43 @@
             @click="sendHandler()"
             :loading="loading"
         ></v-btn>
+        <div>{{ diary }}</div>
     </v-container>
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+import stores from "../stores"
+
 export default {
+
     data: () => ({
         loading: false,
         emotion: {
-            1: "cry",
-            2: "sad",
-            3: "just ok",
-            4: "well",
-            5: "happy"
+            0: "cry",
+            1: "sad",
+            2: "just ok",
+            3: "well",
+            4: "happy"
         },
-        icons: ["", "😢", "😞", "😐", "😙", "😁"]
+        icons: ["😢", "😞", "😐", "😙", "😁"]
     }),
+    computed: {
+        ...mapGetters({
+            diary: "getDiary"
+        }),
+        score: {
+            set(data) {
+                stores.commit("setDiary", {
+                    ...this.diary,
+                    happyScore: data
+                })
+            },
+            get() {
+                return this.diary.happyScore
+            }
+        }
+    },
     methods: {
         season(val) {
             return this.icons[val]

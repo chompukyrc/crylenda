@@ -3,10 +3,12 @@
         fluid
         class="flex flex-col h-screen justify-center items-center animate-in slide-in-from-right duration-1000"
         ><v-container class="w-1/2"
-            ><v-container class="text-center mb-8 text-xl text-white">Why did you cry ;-;</v-container>
+            ><v-container class="text-center mb-8 text-xl text-white"
+                >Why did you cry ;-;</v-container
+            >
             <v-combobox
-                class="h-24"
                 v-model="select"
+                class="h-24"
                 :items="items"
                 label="Why did you cry ;-;"
                 variant="solo"
@@ -27,19 +29,39 @@
                 size="large"
                 color="white"
                 variant="tonal"
-                @click="backHandler()"
                 :disabled="select.length === 0"
+                @click="backHandler()"
             ></v-btn
         ></div>
+        <div>{{ diary }}</div>
     </v-container>
 </template>
 
 <script lang="ts">
+import { mapGetters } from "vuex"
+import stores from "../stores"
+
 export default {
     data() {
         return {
-            select: [],
+            // select: [],
             items: ["พี่กุ๊กดุ", "น้อยใจ", "เครียดงาน", "ไม่เก่งพอ"]
+        }
+    },
+    computed: {
+        ...mapGetters({
+            diary: "getDiary"
+        }),
+        select: {
+            set(data: []) {
+                stores.commit("setDiary", {
+                    ...this.diary,
+                    reason: data
+                })
+            },
+            get() {
+                return this.diary.reason
+            }
         }
     },
     methods: {
